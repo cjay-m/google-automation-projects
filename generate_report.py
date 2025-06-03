@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import csv 
-
+# read given csv file by opening it from csv_file_location, return the list of employees 
 def read_employees(csv_file_location):
         csv.register_dialect('empDialect', skipinitialspace=True, 
         strict= True)
@@ -14,7 +14,7 @@ def read_employees(csv_file_location):
 
 employee_list = read_employees('/home/student/data/employees.csv')
 print(employee_list)
-
+# parse through the employee list and create a data collection of how many people are registered in each department
 def process_data(employee_list):
         department_list = [] 
         for employee_data in employee_list:
@@ -26,7 +26,7 @@ def process_data(employee_list):
 
 dictionary = process_data(employee_list)
 print(dictionary)
-
+# write a new report with the employee data, store it in another folder specifically for data reports
 def write_report(dictionary, report_file):
         with open(report_file, "w+") as f:
                 for k in sorted(dictionary):
